@@ -7,11 +7,3 @@
 3. Mais configurações do compilador `tsc`
 4. Retorno de método explícito
 5. Conversão de valores da interface do usuário
-
-
-
-
-
-
-
-
