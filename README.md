@@ -7,3 +7,12 @@
 3. Mais configurações do compilador `tsc`
 4. Retorno de método explícito
 5. Conversão de valores da interface do usuário
+
+### apredemos
+
+modelagem de classe Negociação
+utilização de generics
+Revisao sobre encapsulamento
+questões de mutabilidade e como solucionar-la
+o tipo ReadonlyArray type
+adicção de negociação
