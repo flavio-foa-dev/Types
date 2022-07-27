@@ -4,6 +4,8 @@ export class Negociacoes {
 
   private negociacoes : Array<Negociacao> = [];
 
+  adiciona(negociacao: Negociacao){
 
+  }
 
 }
