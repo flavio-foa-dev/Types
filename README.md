@@ -16,3 +16,9 @@ Revisao sobre encapsulamento
 questões de mutabilidade e como solucionar-la
 o tipo ReadonlyArray type
 adicção de negociação
+
+1. Nova maneira de declaração de array com generics
+2. O tipo ReadonlyArray
+3. O modificador readonly
+4. Getters vs propiedades  púlblicas em modo de leitura
+5. Programação defensiva.
