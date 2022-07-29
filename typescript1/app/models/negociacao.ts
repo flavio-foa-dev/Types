@@ -10,7 +10,8 @@ export class Negociacao {
     }
 
     get data(): Date {
-        return this._data;
+        const data = new Date(this._data.getTime());
+        return data;
     }
 
     get quantidade(): number {

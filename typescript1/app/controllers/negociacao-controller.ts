@@ -16,6 +16,7 @@ export class NegociacaoController {
   }
     adicionar(): void {
         const negociacao = this.criarNegociacao();
+        negociacao.data.setDate(18) // teste de mutação na referencia data
         this.negociacoes.adiciona(negociacao);
         console.log(this.negociacoes.lista());
         this.limparForm();
