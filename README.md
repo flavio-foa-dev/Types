@@ -8,7 +8,7 @@
 4. Retorno de método explícito
 5. Conversão de valores da interface do usuário
 
-### apredemos
+### o que apredemos
 
 modelagem de classe Negociação
 utilização de generics
