@@ -1,4 +1,4 @@
-# TypeScripts
+# TypeScript
 
 ### o que foi visto:
 
