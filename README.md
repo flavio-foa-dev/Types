@@ -15,7 +15,7 @@ utilização de generics
 Revisao sobre encapsulamento
 questões de mutabilidade e como solucionar-la
 o tipo ReadonlyArray type
-adicção de negociação
+adicção de negociação method
 
 1. Nova maneira de declaração de array com generics
 2. O tipo ReadonlyArray
