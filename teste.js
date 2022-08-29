@@ -4,6 +4,6 @@ const createObjeto = (data, type) => {
   }
 }
 
-const data = { name: "flavio", idade: 19 }
+const data = { name: "flavio", idade: 29 }
 let result = createObjeto( data )
 console.log(result)
