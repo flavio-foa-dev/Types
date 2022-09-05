@@ -22,3 +22,4 @@ adicção de negociação method
 3. O modificador readonly
 4. Getters vs propiedades  púlblicas em modo de leitura
 5. Programação defensiva.
+### Ferramentas:
