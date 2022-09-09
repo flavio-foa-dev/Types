@@ -1,6 +1,6 @@
 # TypeScript
 
-### o que foi visto:
+### visto:
 
 1. O tipo implícito any;
 2. Benefícios da tipagem estática
