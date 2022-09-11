@@ -1,5 +1,6 @@
 const createObjeto = (data, type) => {
-  return { data,
+  return { 
+    data,
      ...type
   }
 }
