@@ -23,3 +23,7 @@ adicção de negociação method
 4. Getters vs propiedades  púlblicas em modo de leitura
 5. Programação defensiva.
 ### Ferramentas:
+
+1. Poo
+2. Classes
+3. Javascripts
