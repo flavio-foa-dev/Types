@@ -28,7 +28,3 @@ adicção de negociação method
 2. Classes
 3. Javascripts
 4. Interfaces
-1. Poo
-2. Classes
-
-
