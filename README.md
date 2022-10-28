@@ -24,7 +24,7 @@ adicção de negociação method
 5. Programação defensiva.
 ### Vamos ve!:
 
-1. Poo
+
 2. Classes
 
-4. Interfaces
+
