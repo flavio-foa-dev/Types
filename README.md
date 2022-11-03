@@ -26,5 +26,6 @@ adicção de negociação method
 
 1. javaScript
 2. Classes
+3. POO
 
 
