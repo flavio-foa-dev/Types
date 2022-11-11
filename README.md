@@ -24,7 +24,7 @@ adicção de negociação method
 5. Programação defensiva.
 ### Vamos ve!:
 
-1. javaScript
+1. javaScrip
+2. Class
 3. POO
-
 
