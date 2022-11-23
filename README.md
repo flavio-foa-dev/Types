@@ -23,8 +23,3 @@ adicção de negociação method
 4. Getters vs propiedades  púlblicas em modo de leitura
 5. Programação defensiva.
 ### Vamos ve!:
-
-1. javaScrip
-2. Class
-3. POO
-
