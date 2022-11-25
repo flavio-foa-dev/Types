@@ -1,0 +1,28 @@
+{
+  "name": "types",
+  "version": "1.0.0",
+  "description": "TypeScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flavio-foa-dev/Types.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/flavio-foa-dev/Types/issues"
+  },
+  "homepage": "https://github.com/flavio-foa-dev/Types#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {
+    "@tsconfig/node16": "^1.0.3",
+    "@types/node": "^18.11.9",
+    "typescript": "^4.9.3"
+  }
+}
