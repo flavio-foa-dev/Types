@@ -1,4 +1,4 @@
-enum HttpStatus {
+export enum HttpStatus {
   ok = 200,
   created = 201,
   internalServeError = 500
