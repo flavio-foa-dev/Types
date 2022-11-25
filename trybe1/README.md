@@ -114,3 +114,119 @@ npx tsc nomeDoArquivo.ts
 
 Obs: A extensão .ts é a extensão padrão para os arquivos TypeScript.
 
+Para rodar o arquivo gerado em javascript
+node nomeDoArquivo.js
+
+## introducao ao tsconfig.json
+o que define que um projeto e typescripr  e a presenca de um arquivo  de configuracao `tsconfig.json` , O arquivo tsconfig.json possui as variaveis de configuracao que define como o nosso codigo sera compilado
+Obs: A melhor prática para a utilização do Typescript em um projeto é instalá-lo como uma devDependency por meio do comando npm i -D typescript e utilizá-lo por meio do npx. Isso garante que todas as pessoas que forem compilar o projeto o façam utilizando a mesma versão do TypeScript, e não a versão instalada em suas respectivas máquinas.
+
+E possivel criar manualmente o arquivo tsconfig.json, podemos utilizar boas pratica a ferramenta que a propia linguagem nos fornece para gera-lo automaticamente , ja vem com as principais configuracoes. Depois, podemos escolher quais vamos utilizar.
+
+
+Para gerar o tsconfig.json vamos utilizar o tsc. Sim, a ferramenta de compilação da linguagem TypeScript.
+
+Caso tenha instalado o compilador globalmente em sua máquina:
+tsc --init
+
+OU caso queira utilizar o tsc como um executável npx:
+npx tsc --init
+
+vamos conhecer um pouco mais do que já vem configurado no arquivo tsconfig.json e o que precisamos configurar para criar nosso  projeto em Typescript!
+
+- module: especifica o sistema de módulo a ser utilizado no código JavaScript que será gerado pelo compilador como sendo o CommonJS;
+- target: define a versão do JavaScript do código compilado como ES6;
+- rootDir: define a localização raiz dos arquivos do projeto;
+- outDir: define a pasta onde ficará nosso código compilado;
+- esModuleInterop: habilitamos essa opção para ser possível compilar módulos ES6 para módulos CommonJS;
+- strict: habilitamos essa opção para ativar a verificação estrita de tipo;
+- include: essa chave vai depois do objeto CompilerOptions e com ela conseguimos incluir na compilação os arquivos ou diretórios mencionados; e
+- exclude: essa chave também vai depois do objeto CompilerOptions e com ela conseguimos excluir da compilação os arquivos mencionados.
+
+Também podemos utilizar uma configuração base para o ambiente JavaScript (versão do Node) que estamos utilizando provida pela própria equipe de desenvolvimento do TypeScript por meio de um repositório no GitHub. Não existe uma versão base para todos os ambientes JavaScript, apenas para os mais recentes. Com node, é possível utilizar a partir da versão 12.
+
+Por exemplo, se estivermos desenvolvendo um projeto que usará a versão 16 do Node, podemos utilizar o módulo base @typescript/node16.
+
+```
+{
+  "extends": "@tsconfig/node16/tsconfig.json",
+  "compilerOptions": {
+    "target": "es2016",
+    "module": "commonjs",
+    "rootDir": "./",
+    "outDir": "./dist",
+    "preserveConstEnums": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true
+  },
+  "include":["src/**/*"], /* aqui estamos incluindo todos os arquivos dentro da pasta src */
+  "exclude": ["node_modules", "**/*.spec.ts"] /* aqui estamos excluindo a pasta node_modules e os arquivos de teste */
+}
+```
+
+Isso permite que nosso tsconfig.json concentre as configurações únicas para o nosso projeto, e não todas as configurações para o nosso ambiente de execução JavaScript.
+
+Esse site possui vários recursos interessantes: nele, você pode ver exemplos de programas criados com TypeScript; testar os recursos mais novos do compilador; criar seus próprios programas e compartilhar a URL deles com outras pessoas.
+
+https://www.typescriptlang.org/pt/play
+
+## Tipos e  subtipos
+
+Vamos falar um pouco mais sobre o grande recurso do typescript em relacao ao javascript: os tipos
+
+Em javascript, todo os tipos sao um subtipo de um tipo principal chamo any, esse e um tipo que pode representar qualquer valor em javaScript. Os demais tipos sao os tipos primitivos tipo de objeto ou parametros de tipo
+```
+any
+
+| primitive types | Object types | types      |
+|-----------------|--------------|------------|
+| boolean         | class        | oarameters |
+| number          | interface    |            |
+| string          | array        |            |
+| enum            | lirerals     |            |
+| void            |              |            |
+
+null
+undefined
+```
+### STipos primitivos:
+nós vamos focar em alguns dos tipos primitivos, que são os tipos boolean, number, string, void, null e undefined.
+
+boolean: recebe verdadeiro (true) ou falso (false)
+
+let yes: boolean = true; // cria uma variável de nome "yes" e diz que o tipo é booleano e o valor é true
+let no: boolean = false; // cria uma variável de nome "no" e diz que o tipo é booleano e o valor é false
+
+number: recebe valores numéricos e, assim como no JavaScript, todos são valores de ponto flutuante.
+
+// cria uma variável de nome "x" e diz que o tipo é number mas não seta o valor
+// isso não funciona com const
+let x: number;
+
+let y: number = 0;
+let z: number = 123.456;
+
+string: recebe uma sequência de caracteres armazenados como unidades de código UTF-16 Unicode.
+
+let s: string;
+let empty: string = "";
+let abc: string = 'abc';
+
+void: existe apenas para indicar a ausência de um valor, como em uma função sem valor retornado.
+
+function sayHelloWorld(): void {
+  console.log("Hello World!");
+}
+
+null e undefined: são subtipos de todos os outros tipos.
+
+let nullValue = null;
+let undefinedValue = undefined;
+
+### Exemplo de declaracao de variavel utilizando inferencia de tipo
+
+como vinmos anteriormente, podemos utilizar a inferencia de tipo no `Typescript`. E possivel declarar uma variavel sem especificarmos explicitamente o tipo e o compilador fara a inferencia do tipo por meio do valor definido para a variavel
+
+mkdir exercicios && cd exercicios

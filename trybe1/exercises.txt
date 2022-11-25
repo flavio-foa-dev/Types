@@ -1,0 +1,118 @@
+TypeScript
+Crie uma nova função para calcular a área de um losango. A área do losango é dada pelo resultado da multiplicação da diagonal maior (D) pela diagonal menor (d) dividido por dois. A = (D * d) / 2
+Área do Losango
+Fórmula da Área de um Losango
+Calcule a área de um losango que tem D = 32cm e d = 18cm;
+Calcule a área de um losango que tem D = 200cm e d = 50cm;
+Calcule a área de um losango que tem D = 75cm e d = 25cm.
+Crie uma nova função para calcular a área de um trapézio. A área do trapézio é dada pelo produto da altura (h) com a soma da base maior (B) e a base menor (b) dividido por dois. A = [(B + b) * h] / 2
+Área do Trapézio
+Fórmula da Área de um Trapézio
+Calcule a área de um trapézio que tem B = 100cm, b = 70cm e altura = 50cm;
+Calcule a área de um trapézio que tem B = 75cm, b = 50cm e altura = 35cm;
+Calcule a área de um trapézio que tem B = 150cm, b = 120cm e altura = 80cm.
+Crie uma nova função para calcular a área de um círculo. A área do círculo de raio r é calculada multiplicando o raio ao quadrado pelo número irracional ℼ (em geral utilizamos ℼ = 3,14). A = ℼ * r². Dica: você pode acessar o valor de ℼ utilizando o módulo nativo Math.PI.
+Área do Círculo
+Fórmula da Área de um Círculo
+Calcule a área de um círculo de raio igual 25cm;S
+Calcule a área de um círculo de raio igual 100cm;
+Calcule a área de um círculo de raio igual 12,5cm.
+Solução
+Crie uma nova função para calcular a área de um losango. A área do losango é dada pelo resultado da multiplicação da diagonal maior (D) pela diagonal menor (d) dividido por dois. A = (D * d) / 2
+Área do Losango
+Fórmula da Área de um Losango
+Calcule a área de um losango que tem D = 32cm e d = 18cm;
+Calcule a área de um losango que tem D = 200cm e d = 50cm;
+Calcule a área de um losango que tem D = 75cm e d = 25cm.
+Copiar
+// ./exercises.ts
+
+// export function getSquareArea(side: number): number {
+//   return side ** 2;
+// }
+
+// export function getRectangleArea(base: number, height: number): number {
+//   return base * height;
+// }
+
+// export function getTriangleArea(base: number, height: number): number {
+//   return (base * height) / 2;
+// }
+
+// export function getPolygonPerimeter(sides: number[]): number {
+//   return sides.reduce((acc, side) => acc + side, 0);
+// }
+
+// export function triangleCheck(
+//   sideA: number,
+//   sideB: number,
+//   sideC: number
+// ): boolean {
+//   const checkSideA = (sideB - sideC) < sideA && sideA < (sideB + sideC);
+//   const checkSideB = (sideA - sideC) < sideB && sideB < (sideA + sideC);
+//   const checkSideC = (sideA - sideB) < sideC && sideC < (sideA + sideB);
+//   return checkSideA && checkSideB && checkSideC;
+// }
+
+export function getRhombusArea(D: number, d: number): number {
+  return (d * D) / 2
+}
+Copiar
+// ./index.ts
+
+import * as Ex from './exercises';
+
+console.log("A ÁREA DE UM:");
+// ...
+
+console.log(`- Losango com diagonais iguais a 32cm e 18cm: ${Ex.getRhombusArea(32, 18)}cm²`);
+console.log(`- Losango com diagonais iguais a 200cm e 50cm: ${Ex.getRhombusArea(200, 50)}cm²`);
+console.log(`- Losango com diagonais iguais a 75cm e 25cm: ${Ex.getRhombusArea(75, 25)}cm²`);
+Crie uma nova função para calcular a área de um trapézio. A área do trapézio é dada pelo produto da altura (h) com a soma da base maior (B) e a base menor (b) dividido por dois. A = [(B + b) * h] / 2
+Área do Trapézio
+Fórmula da Área de um Trapézio
+Calcule a área de um trapézio que tem B = 100cm, b = 70cm e altura = 50cm;
+Calcule a área de um trapézio que tem B = 75cm, b = 50cm e altura = 35cm;
+Calcule a área de um trapézio que tem B = 150cm, b = 120cm e altura = 80cm.
+Copiar
+// ./exercise.ts
+// ...
+
+export function getTrapezoidArea(B: number, b: number, h: number): number {
+  return ((B + b) * h) / 2
+}
+Copiar
+// ./index.ts
+
+import * as Ex from './exercises';
+
+console.log("A ÁREA DE UM:");
+// ...
+
+console.log(`- Trapézio com base maior igual a 100cm, base menor igual a 70cm e altura igual a 50cm: ${Ex.getTrapezoidArea(100, 70, 50)}cm²`);
+console.log(`- Trapézio com base maior igual a 75cm, base menor igual a 50cm e altura igual a 35cm: ${Ex.getTrapezoidArea(75, 50, 35)}cm²`);
+console.log(`- Trapézio com base maior igual a 150cm, base menor igual a 120cm e altura igual a 80cm: ${Ex.getTrapezoidArea(150, 120, 80)}cm²`);
+Crie uma nova função para calcular a área de um círculo. A área do círculo de raio r é encontrada multiplicando o raio ao quadrado pelo número irracional ℼ (em geral utilizamos ℼ = 3,14). A = ℼ * r². Dica: você pode acessar o valor de ℼ utilizando o módulo nativo Math.PI.
+Área do Círculo
+Fórmula da Área de um Círculo
+Calcule a área de um círculo de raio igual 25cm;
+Calcule a área de um círculo de raio igual 100cm;
+Calcule a área de um círculo de raio igual 12,5cm.
+Copiar
+// ./exercise.ts
+// ...
+
+export function getCircleArea(radius: number): number {
+  return Math.PI * radius ** 2;
+}
+Copiar
+// ./index.ts
+
+import * as Ex from './exercises';
+
+console.log("A ÁREA DE UM:");
+// ...
+
+console.log(`- Círculo de raio 10cm: ${Ex.getCircleArea(10)}cm²`);
+console.log(`- Círculo de raio 5cm: ${Ex.getCircleArea(5)}cm²`);
+console.log(`- Círculo de raio 100cm: ${Ex.getCircleArea(100)}cm²`);
