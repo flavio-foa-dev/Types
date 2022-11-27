@@ -36,3 +36,60 @@ let fullName: [string, string] = ["Jane", "Doe"];
 let person: [string, number] = ["Jane Doe", 35];
 let car: [string, string, number] = ["Ford", "F400", 10];
 ```
+
+## Type Aliases
+
+Types aliases (apelidos de tipos) sao utilizados para declarar a forma de um objeto nomeando o tipo, o que nos permite usar o mesmo tipo mais de uma vez e mos referor a a ele atraves de um unico nome . Um type alias
+
+### Exemplo Type Aliase :
+
+```
+type Point = {
+  x: number;
+  y: number;
+};
+
+
+function printCoord(pt: Point) {
+  console.log("O valor da cordenada x é: " + pt.x);
+  console.log("O valor da coordenada y é: " + pt.y);
+}
+
+printCoord({ x: 100, y: 100 });
+//saída:
+//O valor da cordenada x é: 100
+//O valor da cordenada y é: 100
+```
+
+Podemos dar nome a qualquer tipo e nao  apenas a um tipo de objeto.
+
+Exercícios
+
+Crie um type para um objeto que represente um pássaro.
+Crie um type que represente uma função que recebe dois valores numéricos e retorne a soma deles.
+Crie um type para um objeto que represente um endereço.
+
+## Type Unions
+
+Type Unions (uniao de tipos) e uma forma de declarar que um objeto e um tipo formado a partir de dois ou mais tipos outros tipos, representado valores que podem ser de qulquer um desses tipos.
+para isso, e preciso declarar os tipos esperado por barras (pipe)
+```
+// A função abaixo pode receber tanto um número
+// quanto uma string.
+function imprimirCPF(cpf: number | string){
+  console.log("Seu CPF é: " + cpf);
+}
+
+imprimirCPF(11111111111);
+// Saída:
+// Seu CPF é: 11111111111
+imprimirCPF('111.111.111-11');
+// Saída:
+// Seu CPF é: 111.111.111-11
+```
+
+Exercícios
+
+Crie um type union que represente os estados físicos da matéria: líquido, sólido ou gasoso.
+Crie um type union que represente o documento identificador de uma pessoa que pode receber valores numéricos ou texto. Ex: “123.567.890-12” ou 123456789012.
+Crie um type union que represente sistemas operacionais: linux, mac os ou windows.
