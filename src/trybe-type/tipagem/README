@@ -1,0 +1,38 @@
+### Introdução - Tipagem Estática e Generics
+
+Vamos estudar o mair duferencial do Typescripts em relacao ao javaScript o sistema de tipos aprofundar a tipagem estatica  conhecer novos tipos, Types assertion,  e os generics, que te ajudarao na reutilizacao de codigo
+
+## Aprenderemos
+- Declaracao tipos em colecao, Arrays e `Tuplas`;
+- Declaracao de variaveis do tipo objeto do `TypeScript`
+- Compreender o que sao `types Aliases`
+- Compreender o que 'e uma `Classe`
+- Compreender o que 'e uma `Interface`
+- Compreender o que sao `Types Asseertion e Generics`
+- Estrutura um model que usa conceitos aprendidos /
+
+O TypeScript também nos proporciona novas estruturas de dados que não existem no JavaScript que, muitas vezes, podem nos ajudar a resolver de uma forma melhor e mais coesa alguns problemas que encontramos no dia a dia do desenvolvimento de software
+
+## Tipos de coleção
+
+Chegou a hora de conhecer mais sobre os dois tipos de coleção mais importantes do Typescript: Arrays (que você provavelmente já trabalhou bastante ao longo do curso) e Tuplas.
+
+## Arrays
+
+Arrays são conjuntos de valores de mesmo tipo. Para declará-los, você pode adicionar o tipo esperado do array com a sintaxe let arrayName: type[] = [...];
+
+```
+let names: string[] = ["Mary Joe", "Alan Joe"];
+```
+
+## Tuplas
+
+Tuplas permitem declarar um conjunto de valores cuja ordem e tipo dos valores são fixas. Em JavaScript, elas são representadas como arrays (por isso a semelhança!), mas são estruturas diferentes. Por exemplo, você pode querer representar um valor como um par de uma string e um número.
+
+Para declarar uma tupla, use a sintaxe let variableName: [type, type, ...]:
+
+```
+let fullName: [string, string] = ["Jane", "Doe"];
+let person: [string, number] = ["Jane Doe", 35];
+let car: [string, string, number] = ["Ford", "F400", 10];
+```

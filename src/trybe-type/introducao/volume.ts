@@ -1,6 +1,6 @@
 // ./volume.ts
 
-const units = ["km³", "hm³", "dam³", "m³", "dm³", "cm³", "mm³"];
+export const units = ["km³", "hm³", "dam³", "m³", "dm³", "cm³", "mm³"];
 
 function convert(value: number, fromUnit: string, toUnit: string): number {
     const fromIndex = units.indexOf(fromUnit);
