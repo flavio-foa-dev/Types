@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "TypeScript",
   "main": "index.js",
+
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,13 +18,16 @@
   },
   "homepage": "https://github.com/flavio-foa-dev/Types#readme",
   "dependencies": {
+    "@types/pg": "^8.6.5",
     "express": "^4.18.2",
+    "pg": "^8.8.0",
     "readline-sync": "^1.4.10"
   },
   "devDependencies": {
     "@tsconfig/node16": "^1.0.3",
     "@types/node": "^18.11.9",
     "@types/readline-sync": "^1.4.4",
+    "ts-node": "^10.9.1",
     "typescript": "^4.9.3"
   }
 }

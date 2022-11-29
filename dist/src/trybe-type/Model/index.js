@@ -1,0 +1,61 @@
+"use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const config_1 = require("./config");
+class Main {
+    constructor() {
+    }
+    getAllBooks(sql) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const result = yield config_1.client.query(sql);
+            console.log(result.rows);
+            // client.end()
+            const books = result.rows;
+            return books;
+        });
+    }
+    getBayIdBook(sql) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const result = yield config_1.client.query(sql);
+            console.log(result.rows);
+            // client.end()
+            const book = result.rows;
+            return book;
+        });
+    }
+    updateBook(book) {
+        return __awaiter(this, void 0, void 0, function* () {
+        });
+    }
+    save(sql, values) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const result = yield config_1.client.query(sql, values);
+            console.log(result);
+            const book = result.rows;
+            return book;
+        });
+    }
+    delete(sql) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const result = yield config_1.client.query(sql);
+            console.log(result.rowCount);
+            const book = result.rows;
+            return book;
+        });
+    }
+}
+const books = new Main();
+books.getAllBooks("SELECT * FROM books");
+// books.getBayIdBook("SELECT * FROM books Where id = 1")
+// const text = 'INSERT INTO books(title, price, author, isbn) VALUES ($1, $2, $3, $4) RETURNING *'
+// const values = ["Dinosaur Brains", 19.58, "Albert J. Bernstein", "978-0345410214"]
+// books.save(text, values)
+//books.delete("DELETE FROM books WHERE id = 5")
