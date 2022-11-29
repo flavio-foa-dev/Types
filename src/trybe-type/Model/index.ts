@@ -31,8 +31,12 @@ class Main {
     return book as IBook[]
   }
 
-  async updateBook(book: IBook){
-
+  async updateBook(sql: string): Promise<IBook[]> {
+    const result = await client.query(sql)
+    console.log(result.rows)
+    // client.end()
+    const book = result.rows
+    return book as IBook[]
   }
 
   async save(sql: string, values: any): Promise<IBook[]> {
@@ -54,14 +58,11 @@ class Main {
 const books = new Main()
 
 books.getAllBooks("SELECT * FROM books")
-
 // books.getBayIdBook("SELECT * FROM books Where id = 1")
-
-
 // const text = 'INSERT INTO books(title, price, author, isbn) VALUES ($1, $2, $3, $4) RETURNING *'
 // const values = ["Dinosaur Brains", 19.58, "Albert J. Bernstein", "978-0345410214"]
-
 // books.save(text, values)
-
 //books.delete("DELETE FROM books WHERE id = 5")
+//books.updateBook("UPDATE books SET title = 'Dinosaur Brains', price=19.58, author = 'Albert J. Bernstein', isbn = '978-0345410214' WHERE id = 4");
+
 

@@ -31,8 +31,13 @@ class Main {
             return book;
         });
     }
-    updateBook(book) {
+    updateBook(sql) {
         return __awaiter(this, void 0, void 0, function* () {
+            const result = yield config_1.client.query(sql);
+            console.log(result.rows);
+            // client.end()
+            const book = result.rows;
+            return book;
         });
     }
     save(sql, values) {
@@ -59,3 +64,4 @@ books.getAllBooks("SELECT * FROM books");
 // const values = ["Dinosaur Brains", 19.58, "Albert J. Bernstein", "978-0345410214"]
 // books.save(text, values)
 //books.delete("DELETE FROM books WHERE id = 5")
+//books.updateBook("UPDATE books SET title = 'Dinosaur Brains', price=19.58, author = 'Albert J. Bernstein', isbn = '978-0345410214' WHERE id = 4");
