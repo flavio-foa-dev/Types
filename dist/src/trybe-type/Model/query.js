@@ -12,3 +12,4 @@ client.query(text, values)
 .then(response => console.log(response, "created"))
 .finally(()=> client.end())
 
+//DROP TABLE table_name;
