@@ -1,22 +1,17 @@
-import { client } from './config'
-
+import { client } from '../config/connection'
 // console.log(client)
+import  {IBook } from '../../interface/book'
 
-export interface IBook {
-  id?: number,
-  title: string,
-  price: number,
-  author: string,
-  isbn: string,
-}
 
-class Main {
+export default class BookModel {
+  bookAll: string
+
   constructor() {
+    this.bookAll = "SELECT * FROM books"
 
   }
-
-  async getAllBooks(sql:string): Promise<IBook[]> {
-    const result = await client.query(sql)
+  async getAllBooks(): Promise<IBook[]> {
+    const result = await client.query(this.bookAll)
     console.log(result.rows)
     // client.end()
     const books = result.rows
@@ -55,9 +50,8 @@ class Main {
 
 }
 
-const books = new Main()
-
-books.getAllBooks("SELECT * FROM books")
+// const books = new BookModel()
+// books.getAllBooks("SELECT * FROM books")
 // books.getBayIdBook("SELECT * FROM books Where id = 1")
 // const text = 'INSERT INTO books(title, price, author, isbn) VALUES ($1, $2, $3, $4) RETURNING *'
 // const values = ["Dinosaur Brains", 19.58, "Albert J. Bernstein", "978-0345410214"]
