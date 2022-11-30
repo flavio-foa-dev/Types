@@ -13,6 +13,7 @@ const connection_1 = require("../config/connection");
 class BookModel {
     constructor() {
         this.bookAll = "SELECT * FROM books";
+        this.bookById = "SELECT * FROM books Where id =";
     }
     getAllBooks() {
         return __awaiter(this, void 0, void 0, function* () {
@@ -23,9 +24,9 @@ class BookModel {
             return books;
         });
     }
-    getBayIdBook(sql) {
+    getBayIdBook(id) {
         return __awaiter(this, void 0, void 0, function* () {
-            const result = yield connection_1.client.query(sql);
+            const result = yield connection_1.client.query(`${this.bookById}${id}`);
             console.log(result.rows);
             // client.end()
             const book = result.rows;

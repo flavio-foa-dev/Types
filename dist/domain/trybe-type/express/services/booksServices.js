@@ -23,5 +23,11 @@ class BookService {
             return book;
         });
     }
+    getBayIdBook(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const book = yield this.model.getBayIdBook(id);
+            return book;
+        });
+    }
 }
 exports.default = BookService;

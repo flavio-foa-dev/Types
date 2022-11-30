@@ -8,4 +8,5 @@ const controllerBook_1 = __importDefault(require("../controllers/controllerBook"
 const router = (0, express_1.Router)();
 const booksController = new controllerBook_1.default;
 router.get('/books', booksController.getAllBooks);
+router.get('/books/:id', booksController.getBayIdBook);
 exports.default = router;

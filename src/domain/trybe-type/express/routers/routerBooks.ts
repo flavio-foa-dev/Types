@@ -5,5 +5,6 @@ const router = Router()
 const booksController = new BooksControllers
 
 router.get('/books', booksController.getAllBooks)
+router.get('/books/:id', booksController.getBayIdBook)
 
 export default router

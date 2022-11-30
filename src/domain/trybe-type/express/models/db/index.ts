@@ -5,9 +5,11 @@ import  {IBook } from '../../interface/book'
 
 export default class BookModel {
   bookAll: string
+  bookById: string
 
   constructor() {
     this.bookAll = "SELECT * FROM books"
+    this.bookById = "SELECT * FROM books Where id ="
 
   }
   async getAllBooks(): Promise<IBook[]> {
@@ -18,8 +20,8 @@ export default class BookModel {
     return books as IBook[];
   }
 
-  async getBayIdBook(sql:string): Promise<IBook[]> {
-    const result = await client.query(sql)
+  async getBayIdBook(id:number): Promise<IBook[]> {
+    const result = await client.query(`${this.bookById}${id}`)
     console.log(result.rows)
     // client.end()
     const book = result.rows
