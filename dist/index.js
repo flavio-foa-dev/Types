@@ -7,6 +7,7 @@ const express_1 = __importDefault(require("express"));
 const statusCodes_1 = __importDefault(require("./domain/trybe-type/express/statusCodes"));
 require("express-async-errors");
 const routerBooks_1 = __importDefault(require("./domain/trybe-type/express/routers/routerBooks"));
+const error_1 = require("./domain/trybe-type/express/middlewares/error");
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
 const PORT = 3000;
@@ -14,28 +15,7 @@ app.get('/', (req, res) => {
     res.status(statusCodes_1.default.OK).send("Express TypeScript");
 });
 app.use(routerBooks_1.default);
-app.use((err, req, res, next) => {
-    const { name, message, details } = err;
-    console.log(`name: ${name}, message: ${message}, details: ${details}`);
-    switch (name) {
-        case 'BadRequestError':
-            res.status(400).json({ message });
-            break;
-        case 'ValidationError':
-            res.status(400).json({ message: details[0].message });
-            break;
-        case 'NotFoundError':
-            res.status(404).json({ message });
-            break;
-        case 'ConflictError':
-            res.status(409).json({ message });
-            break;
-        default:
-            console.error(err);
-            res.sendStatus(500);
-    }
-    next();
-});
+app.use(error_1.httpError);
 app.listen(PORT, () => {
     console.log(`Server is running at http://localhost:${PORT}`);
 });

@@ -13,7 +13,8 @@ const connection_1 = require("../config/connection");
 class BookModel {
     constructor() {
         this.bookAll = "SELECT * FROM books";
-        this.bookById = "SELECT * FROM books Where id =";
+        this.bookById = "SELECT * FROM books Where id = $1";
+        this.bookSave = 'INSERT INTO books(title, price, author, isbn) VALUES ($1, $2, $3, $4) RETURNING *';
     }
     getAllBooks() {
         return __awaiter(this, void 0, void 0, function* () {
@@ -26,7 +27,7 @@ class BookModel {
     }
     getBayIdBook(id) {
         return __awaiter(this, void 0, void 0, function* () {
-            const result = yield connection_1.client.query(`${this.bookById}${id}`);
+            const result = yield connection_1.client.query(this.bookById, [id]);
             console.log(result.rows);
             // client.end()
             const book = result.rows;
@@ -42,10 +43,11 @@ class BookModel {
             return book;
         });
     }
-    save(sql, values) {
+    save(value) {
         return __awaiter(this, void 0, void 0, function* () {
-            const result = yield connection_1.client.query(sql, values);
-            console.log(result);
+            let books = [value.title, value.price, value.author, value.isbn];
+            const result = yield connection_1.client.query(this.bookSave, books);
+            console.log(result.rowCount);
             const book = result.rows;
             return book;
         });

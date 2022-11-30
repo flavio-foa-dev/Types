@@ -17,7 +17,7 @@ class BookService {
     constructor() {
         this.model = new db_1.default();
     }
-    getBookAll() {
+    getAllBooks() {
         return __awaiter(this, void 0, void 0, function* () {
             const book = yield this.model.getAllBooks();
             return book;
@@ -27,6 +27,12 @@ class BookService {
         return __awaiter(this, void 0, void 0, function* () {
             const book = yield this.model.getBayIdBook(id);
             return book;
+        });
+    }
+    save(value) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const result = yield this.model.save(value);
+            return result;
         });
     }
 }

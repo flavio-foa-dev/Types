@@ -6,10 +6,12 @@ import  {IBook } from '../../interface/book'
 export default class BookModel {
   bookAll: string
   bookById: string
+  bookSave: string
 
   constructor() {
     this.bookAll = "SELECT * FROM books"
-    this.bookById = "SELECT * FROM books Where id ="
+    this.bookById = "SELECT * FROM books Where id = $1"
+    this.bookSave = 'INSERT INTO books(title, price, author, isbn) VALUES ($1, $2, $3, $4) RETURNING *'
 
   }
   async getAllBooks(): Promise<IBook[]> {
@@ -21,7 +23,7 @@ export default class BookModel {
   }
 
   async getBayIdBook(id:number): Promise<IBook[]> {
-    const result = await client.query(`${this.bookById}${id}`)
+    const result = await client.query(this.bookById, [id])
     console.log(result.rows)
     // client.end()
     const book = result.rows
@@ -36,9 +38,10 @@ export default class BookModel {
     return book as IBook[]
   }
 
-  async save(sql: string, values: any): Promise<IBook[]> {
-    const result = await client.query(sql, values)
-    console.log(result)
+  async save(value:IBook): Promise<IBook[]> {
+    let books = [value.title, value.price, value.author, value.isbn]
+    const result = await client.query(this.bookSave, books)
+    console.log(result.rowCount)
     const book = result.rows
     return book as IBook[]
   }
