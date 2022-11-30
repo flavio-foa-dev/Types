@@ -3,11 +3,6 @@ export interface IPessoa<T> {
   name: string;
   age: number;
 }
-
-
-
-
-
 class PessoaT implements IPessoa<number> {
   id?: number = 0;
   name: string = "Pessoa";
