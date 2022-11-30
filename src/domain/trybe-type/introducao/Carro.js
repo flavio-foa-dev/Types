@@ -600,7 +600,7 @@ Author.init({
 export default Author;
 
 import { Model, INTEGER, STRING } from 'sequelize';
-import db from './index';
+import db from '../../../config/db/Model/index';
 
 class Author extends Model {
   declare id: number;
@@ -698,7 +698,7 @@ Book.init({
 export default Book;
 
 import { Model, INTEGER, STRING } from 'sequelize';
-import db from './index';
+import db from '../../../config/db/Model/index';
 
 class Book extends Model {
   declare id: number;
@@ -744,7 +744,7 @@ Book.init({
 export default Book;
 
 import { Model, INTEGER, STRING } from 'sequelize';
-import db from './index';
+import db from '../../../config/db/Model/index';
 import Author from './AuthorModel';
 
 class Book extends Model {
