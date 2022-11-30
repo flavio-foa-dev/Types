@@ -13,4 +13,9 @@ export default class BookService  {
     const book = await this.model.getAllBooks()
     return book
   }
+
+  public async getBayIdBook(id: number): Promise<IBook[]> {
+    const book = await this.model.getBayIdBook(id)
+    return book
+  }
 }

@@ -21,6 +21,15 @@ class BookController {
             const book = yield this.booksServices.getBookAll();
             res.status(statusCodes_1.default.OK).json(book);
         });
+        this.getBayIdBook = (req, res) => __awaiter(this, void 0, void 0, function* () {
+            const id = Number(req.params.id);
+            const book = yield this.booksServices.getBayIdBook(id);
+            if (!book.length) {
+                return res.status(statusCodes_1.default.NOT_FOUND)
+                    .json({ message: 'Book not found' });
+            }
+            res.status(statusCodes_1.default.OK).json(book);
+        });
     }
 }
 exports.default = BookController;

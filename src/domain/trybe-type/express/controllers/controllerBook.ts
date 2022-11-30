@@ -13,4 +13,15 @@ export default class BookController {
     res.status(statusCodes.OK).json(book);
   };
 
+  public getBayIdBook = async(req: Request, res: Response) => {
+    const id = Number(req.params.id);
+    const book = await this.booksServices.getBayIdBook(id)
+
+    if(!book.length) {
+      return res.status(statusCodes.NOT_FOUND)
+        .json({ message: 'Book not found'})
+    }
+    res.status(statusCodes.OK).json(book)
+  }
+
 }
