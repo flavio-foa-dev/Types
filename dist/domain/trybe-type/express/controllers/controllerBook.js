@@ -35,6 +35,17 @@ class BookController {
             const result = yield this.booksServices.save(book);
             return res.status(statusCodes_1.default.OK).json(result);
         });
+        this.delete = (req, res) => __awaiter(this, void 0, void 0, function* () {
+            const id = parseInt(req.params.id, 10);
+            yield this.booksServices.delete(id);
+            return res.status(statusCodes_1.default.OK).send("Book excluded");
+        });
+        this.updateBook = (req, res) => __awaiter(this, void 0, void 0, function* () {
+            const id = parseInt(req.params.id, 10);
+            const book = req.body;
+            yield this.booksServices.updateBook(id, book);
+            return res.status(statusCodes_1.default.OK).send("Book updated");
+        });
     }
 }
 exports.default = BookController;

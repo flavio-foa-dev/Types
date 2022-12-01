@@ -23,4 +23,13 @@ export default class BookService  {
     const result = await this.model.save(value)
     return result
   }
+
+  public async delete(id:number):Promise<void> {
+    const book = await this.model.delete(id)
+  }
+
+  public async updateBook(id:number, book:IBook):Promise<void> {
+    const result = await this.model.updateBook(id, book)
+
+  }
 }

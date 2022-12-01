@@ -35,5 +35,15 @@ class BookService {
             return result;
         });
     }
+    delete(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const book = yield this.model.delete(id);
+        });
+    }
+    updateBook(id, book) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const result = yield this.model.updateBook(id, book);
+        });
+    }
 }
 exports.default = BookService;

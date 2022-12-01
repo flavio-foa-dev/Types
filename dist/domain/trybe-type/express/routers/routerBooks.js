@@ -10,4 +10,6 @@ const booksController = new controllerBook_1.default;
 router.get('/books', booksController.getAllBooks);
 router.get('/books/:id', booksController.getBayIdBook);
 router.post('/book/', booksController.save);
+router.delete('/book/:id', booksController.delete);
+router.put('/book/:id', booksController.updateBook);
 exports.default = router;

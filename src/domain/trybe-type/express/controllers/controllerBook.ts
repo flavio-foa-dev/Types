@@ -31,6 +31,19 @@ export default class BookController {
     return res.status(statusCodes.OK).json(result)
   }
 
+  public delete = async (req: Request, res: Response) => {
+    const id = parseInt(req.params.id, 10)
+    await this.booksServices.delete(id)
 
+    return res.status(statusCodes.OK).send("Book excluded")
+  }
+
+  public updateBook = async (req: Request, res: Response) => {
+    const id = parseInt(req.params.id, 10)
+    const book = req.body
+    await this.booksServices.updateBook(id, book)
+
+    return res.status(statusCodes.OK).send("Book updated")
+  }
 
 }
