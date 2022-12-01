@@ -9,7 +9,7 @@ export default class BookService  {
     this.model = new BookModel()
   }
 
-  public async getBookAll(): Promise<IBook[]> {
+  public async getAllBooks(): Promise<IBook[]> {
     const book = await this.model.getAllBooks()
     return book
   }
@@ -17,5 +17,19 @@ export default class BookService  {
   public async getBayIdBook(id: number): Promise<IBook[]> {
     const book = await this.model.getBayIdBook(id)
     return book
+  }
+
+  public async save(value:IBook) {
+    const result = await this.model.save(value)
+    return result
+  }
+
+  public async delete(id:number):Promise<void> {
+    const book = await this.model.delete(id)
+  }
+
+  public async updateBook(id:number, book:IBook):Promise<void> {
+    const result = await this.model.updateBook(id, book)
+
   }
 }
