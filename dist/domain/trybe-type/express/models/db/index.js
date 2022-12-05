@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const connection_1 = require("../config/connection");
+const connection_1 = require("../../../../../db/config/connection");
 class BookModel {
     constructor() {
         this.bookAll = "SELECT * FROM books";
