@@ -1,4 +1,4 @@
-import { client } from '../models/config/connection'
+import { client } from '../../../../db/config/connection'
 import BookModel from '../models/db'
 import { IBook } from '../interface/book'
 

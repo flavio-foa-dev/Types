@@ -1,4 +1,4 @@
-import { client } from '../config/connection'
+import { client } from '../../../../../db/config/connection'
 // console.log(client)
 import  {IBook } from '../../interface/book'
 

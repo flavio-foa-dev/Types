@@ -2,6 +2,7 @@ import express, { Request, Response } from "express";
 import statusCodes from "./domain/trybe-type/express/statusCodes";
 import 'express-async-errors'
 import BooksRouters from './domain/trybe-type/express/routers/routerBooks'
+import CustomerRouters from './domain/trybe-type/customer/router/routerCustomer'
 import { httpError } from './domain/trybe-type/express/middlewares/error'
 const app = express();
 
@@ -14,6 +15,7 @@ app.get('/', (req: Request, res: Response) => {
 })
 
 app.use(BooksRouters)
+app.use(CustomerRouters)
 
 app.use(httpError)
 
