@@ -14,7 +14,7 @@ export default class CustomerModel {
     this.customerById = "SELECT * FROM tbl_customer Where id = $1"
     this.customerSave = 'INSERT INTO tbl_customer(name, email, password) VALUES ($1, $2, $3) RETURNING *'
     this.customerDelete = 'DELETE FROM tbl_customer WHERE id = $1'
-    this.customerUpdate = 'UPDATE tbl_customer SET name=$1, email=$2, password=$3, WHERE id=$5'
+    this.customerUpdate = 'UPDATE tbl_customer SET name=$1, email=$2, password=$3 WHERE id=$4'
 
   }
 
@@ -30,11 +30,23 @@ export default class CustomerModel {
     return custumer as ICustomer[];
   }
 
-  // updateCustomer(customer: Customer){}
+  async saveCustomer(values:ICustomer):Promise<void> {
+    const parseCustumer = Object.values(values)
+    await this.client.query(this.customerSave, parseCustumer)
 
-  // saveCustomer(customer){}
 
-  // deleteCustomer(customer){}
+  }
 
+  async updateCustomer(custumer: ICustomer, id: number): Promise<void> {
+    const parseCustumer = Object.values(custumer)
+    await this.client.query(this.customerUpdate, [...parseCustumer, id])
+
+  }
+
+
+  async deleteCustomer(id: number): Promise<void> {
+    await this.client.query(this.customerDelete, [id])
+
+  }
 
 }

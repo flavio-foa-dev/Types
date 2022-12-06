@@ -32,5 +32,26 @@ class customerService {
             return custumer;
         });
     }
+    saveCustomer(values) {
+        var _a;
+        return __awaiter(this, void 0, void 0, function* () {
+            const result = yield ((_a = this.model) === null || _a === void 0 ? void 0 : _a.saveCustomer(values));
+            console.log(result);
+        });
+    }
+    updateCustomer(custumer, id) {
+        var _a;
+        return __awaiter(this, void 0, void 0, function* () {
+            const result = yield ((_a = this.model) === null || _a === void 0 ? void 0 : _a.updateCustomer(custumer, id));
+            console.log(result);
+        });
+    }
+    deleteCustomer(id) {
+        var _a;
+        return __awaiter(this, void 0, void 0, function* () {
+            const result = yield ((_a = this.model) === null || _a === void 0 ? void 0 : _a.deleteCustomer(id));
+            console.log(result);
+        });
+    }
 }
 exports.default = customerService;
