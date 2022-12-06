@@ -16,7 +16,7 @@ class CustomerModel {
         this.customerById = "SELECT * FROM tbl_customer Where id = $1";
         this.customerSave = 'INSERT INTO tbl_customer(name, email, password) VALUES ($1, $2, $3) RETURNING *';
         this.customerDelete = 'DELETE FROM tbl_customer WHERE id = $1';
-        this.customerUpdate = 'UPDATE tbl_customer SET name=$1, email=$2, password=$3, WHERE id=$5';
+        this.customerUpdate = 'UPDATE tbl_customer SET name=$1, email=$2, password=$3 WHERE id=$4';
     }
     getAllCustomers() {
         return __awaiter(this, void 0, void 0, function* () {
@@ -30,6 +30,26 @@ class CustomerModel {
             const result = yield this.client.query(this.customerById, [id]);
             const custumer = result.rows;
             return custumer;
+        });
+    }
+    saveCustomer(values) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const parseCustumer = Object.values(values);
+            const result = yield this.client.query(this.customerSave, parseCustumer);
+            console.log(result.rows);
+        });
+    }
+    updateCustomer(custumer, id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const parseCustumer = Object.values(custumer);
+            const result = yield this.client.query(this.customerUpdate, [...parseCustumer, id]);
+            console.log(result);
+        });
+    }
+    deleteCustomer(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const result = yield this.client.query(this.customerDelete, [id]);
+            console.log(result);
         });
     }
 }

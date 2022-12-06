@@ -39,6 +39,7 @@ class BookModel {
     updateBook(id, book) {
         return __awaiter(this, void 0, void 0, function* () {
             const parseBook = Object.values(book);
+            console.log("model custumer", [...parseBook, id]);
             const result = yield connection_1.client.query(this.bookUpdate, [...parseBook, id]);
             console.log(result.rows);
             // client.end()

@@ -29,6 +29,23 @@ class CustomerController {
             }
             res.status(statusCodes_1.default.OK).json(custumer);
         });
+        this.saveCustomer = (req, res) => __awaiter(this, void 0, void 0, function* () {
+            const custumer = req.body;
+            const result = yield this.service.saveCustomer(custumer);
+            console.log(result);
+            return res.status(statusCodes_1.default.OK).json({ message: "Created" });
+        });
+        this.updateCustomer = (req, res) => __awaiter(this, void 0, void 0, function* () {
+            let id = parseInt(req.params.id, 10);
+            const customer = req.body;
+            yield this.service.updateCustomer(customer, id);
+            return res.status(statusCodes_1.default.OK).send("customer updated");
+        });
+        this.deleteCustomer = (req, res) => __awaiter(this, void 0, void 0, function* () {
+            let id = parseInt(req.params.id, 10);
+            yield this.service.deleteCustomer(id);
+            return res.status(statusCodes_1.default.OK).send("customer detected");
+        });
         this.service = new customerService_1.default();
     }
 }

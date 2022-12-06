@@ -18,5 +18,17 @@ export default class customerService {
     return custumer as ICustomer[];
   }
 
+  async saveCustomer(values:ICustomer):Promise<void> {
+    await this.model?.saveCustomer(values)
+  }
+
+  async updateCustomer(custumer: ICustomer, id: number): Promise<void> {
+    await this.model?.updateCustomer(custumer, id)
+
+  }
+
+  async deleteCustomer(id: number): Promise<void> {
+    await this.model?.deleteCustomer(id)
+  }
 
 }
